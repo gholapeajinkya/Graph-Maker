@@ -32,5 +32,9 @@ We can also input as csv file(a demo csv file is already given in this repositor
 ![alt text](https://github.com/ajinkyagholape1998/Graph-Maker/blob/master/Graph%20Maker/output%20images/output_histogram_csv.png)
 - **Pie Chart**
 ![alt text](https://github.com/ajinkyagholape1998/Graph-Maker/blob/master/Graph%20Maker/output%20images/output_pie.png)
-
+## Download
 You can download Graph Maker exe file directly just click on following link<br/>**EXE File:** https://drive.google.com/open?id=1YiPzsOnDlsbpM2D5sWvITL_ytY0tGL1c
+
+## Authors
+* **Ajinkya Gholape** 
+
