@@ -194,10 +194,13 @@ def mgenerate():
         plt.show()
 
 def savegraph():
-        file = filedialog.asksaveasfilename(initialdir = "/",title = "Select file",filetypes = (("png files","*.png"),("all files","*.*")))
-        if file:
-            plt.savefig(file)
-            messagebox.showinfo("Saved", "Image Saved at \n"+file)
+        try:
+            file = filedialog.asksaveasfilename(initialdir = "/",title = "Select file",filetypes = (("png files","*.png"),("all files","*.*")))
+            if file:
+                plt.savefig(file)
+                messagebox.showinfo("Saved", "Image Saved at \n"+file)
+        except:
+            print("Something went wrong")
         
 def hgenerate():
     if len(xh.get() or yh.get() or xetitle.get() or yetitle.get() or etitle.get()) ==0:
@@ -313,23 +316,29 @@ def pmanually():
     save.place(x=140,y=340)
 
 def barchart():
-    xetitle['state']='normal'
-    yetitle['state']='normal'
-    btn1 = Button(window,text="Insert Manually",command=bmanually,relief=FLAT,bg="#5EABEF",fg="white")
-    btn1.pack()
-    btn1.place(x=20,y=250)
-    
-    btn2 = Button(window,text="Import CSV",command=importbcsv,relief=FLAT,bg="#5EABEF",fg="white")
-    btn2.place(x=130,y=250)
+    try:
+        xetitle['state']='normal'
+        yetitle['state']='normal'
+        btn1 = Button(window,text="Insert Manually",command=bmanually,relief=FLAT,bg="#5EABEF",fg="white")
+        btn1.pack()
+        btn1.place(x=20,y=250)
+
+        btn2 = Button(window,text="Import CSV",command=importbcsv,relief=FLAT,bg="#5EABEF",fg="white")
+        btn2.place(x=130,y=250)
+    except:
+        print("Something went wrong...")
 
 def histogram():
-    xetitle['state']='normal'
-    yetitle['state']='normal'
-    btn1 = Button(window,text="Insert Manually",command=hmanually,relief=FLAT,bg="#5EABEF",fg="white")
-    btn1.pack()
-    btn1.place(x=20,y=250)
-    btn2 = Button(window,text="Import CSV",command=importhcsv,relief=FLAT,bg="#5EABEF",fg="white")
-    btn2.place(x=130,y=250)
+    try:
+        xetitle['state']='normal'
+        yetitle['state']='normal'
+        btn1 = Button(window,text="Insert Manually",command=hmanually,relief=FLAT,bg="#5EABEF",fg="white")
+        btn1.pack()
+        btn1.place(x=20,y=250)
+        btn2 = Button(window,text="Import CSV",command=importhcsv,relief=FLAT,bg="#5EABEF",fg="white")
+        btn2.place(x=130,y=250)
+    except:
+        print("Something went wrong...")
 
 def piechart():
     xetitle['state']='disabled'
