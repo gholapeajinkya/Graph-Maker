@@ -82,88 +82,80 @@ def pgeneratefromcsv():
     if len(etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
     else:
-        try:
-            reader = csv.reader(open(filename))
-            xpcsv = []
-            newxpcsv = []
-            labelpcsv = []
-            for raw in reader:
-                xpcsv.append(raw[0])
-                labelpcsv.append(raw[1])
-            print(xpcsv,labelpcsv)
-                
-            for xele in xpcsv:
-                xele = int(xele)
-                newxpcsv.append(xele)
+        reader = csv.reader(open(filename))
+        xpcsv = []
+        newxpcsv = []
+        labelpcsv = []
+        for raw in reader:
+            xpcsv.append(raw[0])
+            labelpcsv.append(raw[1])
+        print(xpcsv,labelpcsv)
 
-            print(newxpcsv,labelpcsv)
-            plt.pie(newxpcsv, labels = labelpcsv,startangle=90, shadow = True, explode = (0, 0, 0.1, 0), radius = 1.2, autopct = '%1.1f%%')
-            plt.legend()
-            plt.title(etitle.get())
-            plt.show()
-        except:
-            messagebox.showerror("Error", "Somthing is wrong with csv file")
+        for xele in xpcsv:
+            xele = int(xele)
+            newxpcsv.append(xele)
 
+        print(newxpcsv,labelpcsv)
+        plt.pie(newxpcsv, labels = labelpcsv,startangle=90, shadow = True, explode = (0, 0, 0.1, 0), radius = 1.2, autopct = '%1.1f%%')
+        plt.legend()
+        plt.title(etitle.get())
+        plt.show()
+        
 def hgeneratefromcsv():
     if len(xetitle.get() or yetitle.get() or etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
     else:
-        try:
-            reader = csv.reader(open(filename))
-            xcsv = []
-            newxcsv = []
-            for raw in reader:
-                print(raw[0])
-                xcsv.append(raw[0])
-            for xele in xcsv:
-                xele = int(xele)
-                newxcsv.append(xele)
-                
-            newycsvh = int(ycsvh.get())
-            
-            plt.hist(newxcsv, newycsvh, color = 'green')
-            plt.xlabel(xetitle.get()) 
-            plt.ylabel(yetitle.get()) 
-            plt.title(etitle.get())
-            plt.show()
-        except:
-            messagebox.showerror("Error", "Somthing is wrong with csv file")
+        reader = csv.reader(open(filename))
+        xcsv = []
+        newxcsv = []
+        for raw in reader:
+            print(raw[0])
+            xcsv.append(raw[0])
+        for xele in xcsv:
+            xele = int(xele)
+            newxcsv.append(xele)
 
+        newycsvh = int(ycsvh.get())
+
+        plt.hist(newxcsv, newycsvh, color = 'green')
+        plt.xlabel(xetitle.get()) 
+        plt.ylabel(yetitle.get()) 
+        plt.title(etitle.get())
+        plt.show()
+        
     
 def bgeneratefromcsv():
     if len(xetitle.get() or yetitle.get() or etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
     else:
-        try:
-            reader = csv.reader(open(filename))
-            xcsv = []
-            ycsv = []
-            newxcsv = []
-            newycsv = []
-            labelcvs = []
-            for raw in reader:
-                print(raw[0],raw[1],raw[2])
-                xcsv.append(raw[0])
-                ycsv.append(raw[1])
-                labelcvs.append(raw[2])
-                
-            print(xcsv,ycsv)
-            for xcsvele in xcsv:
-                xcsvele = int(xcsvele)
-                newxcsv.append(xcsvele)
-                
-            for ycsvele in ycsv:
-                ycsvele = int(ycsvele)
-                newycsv.append(ycsvele)
+        reader = csv.reader(open(filename))
+        xcsv = []
+        ycsv = []
+        newxcsv = []
+        newycsv = []
+        labelcvs = []
+        for raw in reader:
+            print(raw[0],raw[1],raw[2])
+            xcsv.append(raw[0])
+            ycsv.append(raw[1])
+            labelcvs.append(raw[2])
 
-            print(newxcsv,newycsv,labelcvs)
-            plt.bar(newxcsv, newycsv, tick_label = labelcvs, width = 0.8, color = ['red', 'green']) 
-            plt.xlabel(xetitle.get()) 
-            plt.ylabel(yetitle.get()) 
-            plt.title(etitle.get())
-            plt.show()
-        except:
-            messagebox.showerror("Error", "Somthing is wrong with csv file")
+        print(xcsv,ycsv)
+        for xcsvele in xcsv:
+            xcsvele = int(xcsvele)
+            newxcsv.append(xcsvele)
+
+        for ycsvele in ycsv:
+            ycsvele = int(ycsvele)
+            newycsv.append(ycsvele)
+
+        print(newxcsv,newycsv,labelcvs)
+        plt.bar(newxcsv, newycsv, tick_label = labelcvs, width = 0.8, color = ['red', 'green']) 
+        plt.xlabel(xetitle.get()) 
+        plt.ylabel(yetitle.get()) 
+        plt.title(etitle.get())
+        plt.show()
+       
 def mgenerate():
     if len(x.get() or y.get()or le.get()or xetitle.get() or yetitle.get() or etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
@@ -194,13 +186,10 @@ def mgenerate():
         plt.show()
 
 def savegraph():
-        try:
-            file = filedialog.asksaveasfilename(initialdir = "/",title = "Select file",filetypes = (("png files","*.png"),("all files","*.*")))
-            if file:
-                plt.savefig(file)
-                messagebox.showinfo("Saved", "Image Saved at \n"+file)
-        except:
-            print("Something went wrong")
+        file = filedialog.asksaveasfilename(initialdir = "/",title = "Select file",filetypes = (("png files","*.png"),("all files","*.*")))
+        if file:
+            plt.savefig(file)
+            messagebox.showinfo("Saved", "Image Saved at \n"+file)
         
 def hgenerate():
     if len(xh.get() or yh.get() or xetitle.get() or yetitle.get() or etitle.get()) ==0:
@@ -329,16 +318,13 @@ def barchart():
         print("Something went wrong...")
 
 def histogram():
-    try:
-        xetitle['state']='normal'
-        yetitle['state']='normal'
-        btn1 = Button(window,text="Insert Manually",command=hmanually,relief=FLAT,bg="#5EABEF",fg="white")
-        btn1.pack()
-        btn1.place(x=20,y=250)
-        btn2 = Button(window,text="Import CSV",command=importhcsv,relief=FLAT,bg="#5EABEF",fg="white")
-        btn2.place(x=130,y=250)
-    except:
-        print("Something went wrong...")
+    xetitle['state']='normal'
+    yetitle['state']='normal'
+    btn1 = Button(window,text="Insert Manually",command=hmanually,relief=FLAT,bg="#5EABEF",fg="white")
+    btn1.pack()
+    btn1.place(x=20,y=250)
+    btn2 = Button(window,text="Import CSV",command=importhcsv,relief=FLAT,bg="#5EABEF",fg="white")
+    btn2.place(x=130,y=250)
 
 def piechart():
     xetitle['state']='disabled'
