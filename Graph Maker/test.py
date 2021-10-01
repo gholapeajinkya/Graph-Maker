@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from tkinter import messagebox
 import csv
 
+# import csv file for barchart ploting
 def importbcsv():#bar chart
     bcsvpane = PanedWindow(width=300,height=150)
     bcsvpane.place(x=19,y=279)
@@ -29,6 +30,7 @@ def importbcsv():#bar chart
         save = Button(window,text = "Save Graph",command = savegraph,relief=FLAT,bg="#5EABEF",fg="white")
         save.place(x=130,y=310)
 
+# import csv file for histogram ploting
 def importhcsv():#Histogram
     hcsvpane = PanedWindow(width=300,height=150)
     hcsvpane.place(x=19,y=279)
@@ -56,6 +58,7 @@ def importhcsv():#Histogram
         save = Button(window,text = "Save Graph",command = savegraph,relief=FLAT,bg="#5EABEF",fg="white")
         save.place(x=130,y=340)
 
+# import csv file for Pie Chart ploting
 def importpcsv():#Pie Chart
     pcsvpane = PanedWindow(width=300,height=150)
     pcsvpane.place(x=19,y=279)
@@ -77,7 +80,7 @@ def importpcsv():#Pie Chart
         global save
         save = Button(window,text = "Save Graph",command = savegraph,relief=FLAT,bg="#5EABEF",fg="white")
         save.place(x=130,y=310)
-
+     
 def pgeneratefromcsv():
     if len(etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
@@ -155,7 +158,7 @@ def bgeneratefromcsv():
         plt.ylabel(yetitle.get()) 
         plt.title(etitle.get())
         plt.show()
-       
+         
 def mgenerate():
     if len(x.get() or y.get()or le.get()or xetitle.get() or yetitle.get() or etitle.get()) ==0:
         messagebox.showinfo("Empty Text Fields", "Please Fill All Text Fields")
