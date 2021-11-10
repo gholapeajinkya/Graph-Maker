@@ -1,4 +1,7 @@
 # Graph-Maker
+
+<img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
+
 Making Graphs Using Matplotlib
 In this repository, I have made a software application that can be used to generate graph like Bar charts, Histograms and Pie charts.
 Let's see
